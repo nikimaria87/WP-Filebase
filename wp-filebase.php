@@ -104,8 +104,9 @@ if (!defined('WPFB')) {
      */
     function wpfb_callback($cl, $fnc)
     {
-        return create_function('', '$p=func_get_args();return wpfb_call("' . $cl . '","' . $fnc . '",$p,true);');
+      return function() { $p=func_get_args(); return wpfb_call("' . $cl . '","' . $fnc . '",$p,true); };
     }
+
 
     function wpfilebase_init()
     {
